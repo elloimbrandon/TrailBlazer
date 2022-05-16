@@ -16,10 +16,13 @@ const trailSeed = require("../models/trailsSeed.js");
 const State = require("../models/stateSchema.js");
 const stateSeed = require("../models/stateSeed.js");
 
-// NEW View
-router.get("/new", (req, res) => {
-  res.render("new.ejs");
-});
+// // NEW View
+// router.get("/state:/new", (req, res) => {
+//   let state = req.params.state;
+//   res.render("new.ejs", {
+//     state: state,
+//   });
+// });
 
 // Edit
 // GET /:id/edit
@@ -57,6 +60,15 @@ router.delete("/:id", (req, res) => {
       // http status code to indicate we permanently redirect
       res.redirect(301, "/");
     }
+  });
+});
+
+// order matters!
+// // NEW View
+router.get("/:state/new", (req, res) => {
+  let state = req.params.state;
+  res.render("new.ejs", {
+    state: state,
   });
 });
 
@@ -110,11 +122,11 @@ router.get("/", (req, res) => {
 
 // Create
 // POST new trail
-// router.post("/:state", (req, res) => {
-//   Trail.create(req.body, (err, createdTrail) => {
-//     res.redirect("/");
-//   });
-// });
+router.post("/:state", (req, res) => {
+  Trail.create(req.body, (err, createdTrail) => {
+    res.redirect("/");
+  });
+});
 
 // export to server
 module.exports = router;
