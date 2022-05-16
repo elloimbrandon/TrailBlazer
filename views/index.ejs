@@ -8,8 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
+  <form>
+    <form action="/" method="GET" class="form-inline">
+    <div class="form-group">
+      <input type="text" name="search" placeholder="State Search" class="form-control"/>
+      <input type="submit" value="Search" class="btn btn-default"/>
+    </div>
+  </form>
   <body>
-    <h1 style="font-size: 45px">States</h1>
+    <!-- testing -->
+    <div>
+      <% if (noSearchMatch !== undefined) { %>
+        <h1> <%=noSearchMatch%> </h1>
+      <% } else { %>
+        <h1 style="font-size: 45px">States</h1>
+      <% } %>
+    </div>
+    <!-- ///////////////////// -->
     <% for (let i=0; i < states.length; i++) { %>
     <a href="/<%=states[i].state;%>"><%=states[i].state;%></a>
     <img class="state-flag-image" src="<%=states[i].image%>" />
