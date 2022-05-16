@@ -17,9 +17,9 @@ const State = require("../models/stateSchema.js");
 const stateSeed = require("../models/stateSeed.js");
 
 // NEW View
-// router.get("/new", (req, res) => {
-//   res.render("new.ejs");
-// });
+router.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
 
 // Edit
 // GET /:id/edit
@@ -49,31 +49,24 @@ const stateSeed = require("../models/stateSeed.js");
 // });
 
 // DELETE /:id
-// router.delete("/:id", (req, res) => {
-//   Park.findByIdAndRemove(req.params.id, (err, data) => {
-//     if (err) {
-//       console.log(err.message);
-//     } else {
-//       res.redirect("/");
-//     }
-//   });
-// });
-
-// Show
-// GET /:id
-// router.get("/:id", (req, res) => {
-//   Trail.findById(req.params.id, (err, foundTrail) => {
-//     res.render("show.ejs", {
-//       trails: foundTrails,
-//     });
-//   });
-// });
+router.delete("/:id", (req, res) => {
+  Trail.findByIdAndRemove(req.params.id, (err, data) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      // http status code to indicate we permanently redirect
+      res.redirect(301, "/");
+    }
+  });
+});
 
 // GET /:state
 router.get("/:state", (req, res) => {
+  let state = req.params.state;
   Trail.find({ state: req.params.state }, (err, foundTrails) => {
     res.render("show.ejs", {
       trails: foundTrails,
+      state: state,
     });
   });
 });
@@ -110,7 +103,15 @@ router.get("/", (req, res) => {
 // Create
 // POST new trail
 // router.post("/", (req, res) => {
-//   Park.create(req.body, (err, createdTrail) => {
+//   Trail.create(req.body, (err, createdTrail) => {
+//     res.redirect("/");
+//   });
+// });
+
+// Create
+// POST new trail
+// router.post("/:state", (req, res) => {
+//   Trail.create(req.body, (err, createdTrail) => {
 //     res.redirect("/");
 //   });
 // });
@@ -140,3 +141,25 @@ module.exports = router;
 
 // Trail.collection.drop();
 // State.collection.drop();
+
+// --------------------- graveyard ------------------------
+
+// router.get("/:state", (req, res) => {
+//   Trail.find({ state: req.params.state }, (err, foundTrails) => {
+//     let state = req.params.state;
+//     if (err) {
+//       console.log(err.message);
+//     } else {
+//       State.find({ state: req.params.state }, (err, foundState) => {
+//         if (err) {
+//           console.log(err.message);
+//         } else {
+//           res.render("show.ejs", {
+//             state: state,
+//             trails: foundTrails,
+//           });
+//         }
+//       });
+//     }
+//   });
+// });

@@ -9,17 +9,35 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <!-- code below to get current state -->
-    <% let state = "" %> <% for (let i=0; i < trails.length; i++) { %> <%state =
-    trails[i].state%> <% } %>
-    <!-- //////////////////// -->
+    <!-- ////////////////////////// -->
+    <!-- checks to see if there are any trails left in the current state -->
+    <!-- if there is than it will work like normal. If not it will say there are no trails in that state -->
+    <% let currentState = "" %> <% for (let i=0; i < trails.length; i++) { %>
+    <%currentState = trails[i].state%> <% } %> <% if (currentState === "") { %>
+    <h1>Cannot find trails in <%=state%>... Sorry</h1>
+    <% } else { %>
     <h1 style="font-size: 45px">Trails in <%=state%></h1>
+    <% } %>
+    <!-- //////////////////////////// -->
+    <!-- button to add a new trail for that state -->
+    <button
+      class="link-button"
+      type="button"
+      onclick="location.href='/<%=state%>/new'"
+    >
+      Add a new trail for <%=state%>!
+    </button>
+    <!-- //////////////////////////// -->
     <% for (let i=0; i < trails.length; i++) { %>
     <h2>Trail Name: <%=trails[i].name%></h2>
     <h2>City: <%=trails[i].city%></h2>
     <h2>Length In Miles: <%=trails[i].miles%></h2>
     <h2>Description: <%=trails[i].description%></h2>
-    <img src="<%trails[i].image%>" alt="<%=trails[i].name%>" />
+    <form action="/<%=trails[i].id%>?_method=DELETE" method="POST">
+      <input type="submit" value="DELETE" />
+    </form>
     <% } %>
   </body>
 </html>
+<!-- graveyard -->
+<!-- <img src="<%#trails[i].image%>" alt="<%#=trails[i].name%>" /> -->
