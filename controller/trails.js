@@ -88,51 +88,9 @@ router.get("/:state", (req, res) => {
   });
 });
 
-// GET/states w/ search
-
-// router.get("/", (req, res) => {
-//   // first if handles search
-//   if (req.query.search) {
-//     // global - ignore case
-//     const regex = new RegExp(escapeRegex(req.query.search), "gi");
-//     State.find({ state: regex }, (err, allStates) => {
-//       if (err) {
-//         console.log(err.message);
-//       } else {
-//         Trail.find({}, (err, allTrails) => {
-//           if (err) {
-//             console.log(err.message);
-//           } else {
-//             res.render("index.ejs", {
-//               trails: allTrails,
-//               states: allStates,
-//             });
-//           }
-//         });
-//       }
-//     });
-//   } else {
-//     State.find({}, (err, allStates) => {
-//       if (err) {
-//         console.log(err.message);
-//       } else {
-//         Trail.find({}, (err, allTrails) => {
-//           if (err) {
-//             console.log(err.message);
-//           } else {
-//             res.render("index.ejs", {
-//               trails: allTrails,
-//               states: allStates,
-//             });
-//           }
-//         });
-//       }
-//     });
-//   }
-// });
-
 // GET/states w/ search -----works as of now
 router.get("/", (req, res) => {
+  // variable to store string if no state found
   let noSearchMatch = null;
   // first if handles search
   if (req.query.search) {
@@ -143,7 +101,7 @@ router.get("/", (req, res) => {
         console.log(err.message);
       } else {
         if (allStates.length < 1) {
-          noSearchMatch = "No State Found, try again ..";
+          noSearchMatch = `${req.query.search} was not found, try again ..`;
         }
         res.render("index.ejs", {
           states: allStates,
