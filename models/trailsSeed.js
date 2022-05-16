@@ -1,13 +1,13 @@
 module.exports = [
   {
-    name: "Tom's Thumb",
-    State: "AZ",
-    city: "Scottsdale",
-    length: 4.4,
+    name: "Lagoon Park Trail",
+    state: "Alabama",
+    city: "Montgomery",
+    length: 2.4,
     description:
-      "Tom's Thumb is one of the best hikes in Scottsdale, notable for its smooth trail surface, great signage, and interesting rock features. King of all the rock features along this hike is the hike's namesake and turn-around point: Tom's Thumb. At 1.4 billion years old, the towering granite slabs of Tom's Thumb have stood the test of time and are truly a sight to see.",
+      "Head out on this 2.4-mile loop trail near Montgomery, Alabama. Generally considered an easy route, it takes an average of 52 min to complete. This is a popular trail for birding, hiking, and mountain biking, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome, but must be on a leash.",
     image:
-      "https://www.gannett-cdn.com/presto/2018/10/10/PPHX/b3f148a3-e3d1-4b3b-abe4-d6d6a3532a50-tom1.JPG?crop=1599,897,x0,y137&width=1320&height=744&format=pjpg&auto=webp",
+      "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjA2NjQ5NjgvODRkOGQ2ZWMwOTgyODI4OWEzNTg4YWU2OWFmYjY4OTkuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ==",
   },
 ];
 

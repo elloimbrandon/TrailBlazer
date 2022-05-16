@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>National Park</title>
+    <title>States</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <h1 style="font-size: 45px">USA National Parks</h1>
-    <% for (let i=0; i< trails.length; i++) { %>
-    <a href="/<%=trails[i]._id;%>"><%=trails[i].name;%></a>
-    <img src="<%=trails[i].image%>" />
+    <h1 style="font-size: 45px">States?</h1>
+    <% for (let i=0; i < states.length; i++) { %>
+    <a href="/<%=states[i].state;%>"><%=states[i].state;%></a>
+    <a href="/<%=trails[i]._id;%>"><%=trails[i].state;%></a>
+    <img class="state-flag-image" src="<%=states[i].image%>" />
     <% } %>
   </body>
 </html>

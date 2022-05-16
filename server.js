@@ -3,6 +3,7 @@
 // npm i mongoose
 // npm i ejs
 // npm i method-override
+// npm i dotenv
 
 //___________________
 //Dependencies
@@ -10,8 +11,8 @@
 const express = require("express");
 // const methodOverride = require("method-override");
 const mongoose = require("mongoose");
-const trailsController = require("./controllers/trails");
-const PORT = process.env.PORT;
+const trailsController = require("./controller/trails");
+const PORT = process.env.PORT || 3000;
 
 // config
 const app = express();
@@ -22,19 +23,31 @@ require("dotenv").config();
 app.use(express.static("public"));
 
 //Database
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
-// local
-// const MONGODB_URI = PORT;
 
-// Connect to Mongo
-mongoose.connect(MONGODB_URI, () => {
+// connect to the database either via heroku/atlas
+// const MONGODB_URI = process.env.MONGODB_URI;
+
+// local
+const mongoURI = "mongodb://0.0.0.0:27017/trails";
+
+// Connect to Mongo atlas
+// mongoose.connect(MONGODB_URI, () => {
+//   console.log("connected to mongo");
+// });
+
+// connect local
+mongoose.connect(mongoURI, () => {
   console.log("connected to mongo");
 });
 
-// Error / success
+// Error / success / mongo atlas
+// db.on("error", (err) => console.log(err.message + " is Mongod not running?"));
+// db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
+// db.on("disconnected", () => console.log("mongo disconnected"));
+
+// Error / success / mongo local
 db.on("error", (err) => console.log(err.message + " is Mongod not running?"));
-db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
+db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
 // using routes from controller
