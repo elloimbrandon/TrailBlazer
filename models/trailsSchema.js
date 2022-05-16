@@ -5,7 +5,7 @@ const trailsSchema = new mongoose.Schema(
     name: String,
     state: String,
     city: String,
-    length: Number,
+    miles: Number,
     description: String,
     image: String,
   },

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>state</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- code below to get current state -->
+    <% let state = "" %> <% for (let i=0; i < trails.length; i++) { %> <%state =
+    trails[i].state%> <% } %>
+    <!-- //////////////////// -->
+    <h1 style="font-size: 45px">Trails in <%=state%></h1>
+    <% for (let i=0; i < trails.length; i++) { %>
+    <h2>Trail Name: <%=trails[i].name%></h2>
+    <h2>City: <%=trails[i].city%></h2>
+    <h2>Length In Miles: <%=trails[i].miles%></h2>
+    <h2>Description: <%=trails[i].description%></h2>
+    <img src="<%trails[i].image%>" alt="<%=trails[i].name%>" />
+    <% } %>
+  </body>
+</html>

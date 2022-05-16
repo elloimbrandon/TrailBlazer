@@ -62,12 +62,21 @@ const stateSeed = require("../models/stateSeed.js");
 // Show
 // GET /:id
 // router.get("/:id", (req, res) => {
-//   Park.findById(req.params.id, (err, foundTrail) => {
+//   Trail.findById(req.params.id, (err, foundTrail) => {
 //     res.render("show.ejs", {
 //       trails: foundTrails,
 //     });
 //   });
 // });
+
+// GET /:state
+router.get("/:state", (req, res) => {
+  Trail.find({ state: req.params.state }, (err, foundTrails) => {
+    res.render("show.ejs", {
+      trails: foundTrails,
+    });
+  });
+});
 
 // GET / trails
 // router.get("/", (req, res) => {
