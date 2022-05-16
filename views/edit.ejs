@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>edit</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+      <form action="/<%=trails._id%>?_method=PUT" method="POST">
+        Name of Trail:
+      <input type="text" name="name" value="<%=trails.name%>" required />
+      <br />
+      State:
+      <input type="text" name="state" value="<%=trails.state%>" readonly />
+      <br />
+      City:
+      <input type="text" name="city" value="<%=trails.city%>" required />
+      <br />
+      <!-- keep and eye on Decimal128 -->
+      Miles:
+      <input
+        type="number"
+        step="0.01"
+        min="0"
+        name="miles"
+        value="<%=trails.miles%>"
+        required
+      />
+      <br />
+      Description of Trail:
+      <input
+        type="text"
+        name="description"
+        value="<%=trails.description%>"
+        required
+      />
+      <br />
+      Image of Trail:
+      <input
+        type="text"
+        name="image"
+        required
+        value="<%=trails.image%>"
+      />
+      <br />
+    <input type="submit" value="Edit Trail" />
+  </body>
+</html>

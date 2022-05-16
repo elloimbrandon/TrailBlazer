@@ -16,40 +16,36 @@ const trailSeed = require("../models/trailsSeed.js");
 const State = require("../models/stateSchema.js");
 const stateSeed = require("../models/stateSeed.js");
 
-// // NEW View
-// router.get("/state:/new", (req, res) => {
-//   let state = req.params.state;
-//   res.render("new.ejs", {
-//     state: state,
-//   });
-// });
-
 // Edit
 // GET /:id/edit
-// router.get("/:id/edit", (req, res) => {
-//   Park.findById(req.params.id, (err, foundTrail) => {
-//     res.render("edit.ejs", {
-//       trails: foundTrail,
-//     });
-//   });
-// });
+router.get("/:id/edit", (req, res) => {
+  Trail.findById(req.params.id, (err, foundTrail) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      res.render("edit.ejs", {
+        trails: foundTrail,
+      });
+    }
+  });
+});
 
 // Update
 // PUT /:id
-// router.put("/:id", (req, res) => {
-//   Park.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     { new: true },
-//     (err, updatedTrail) => {
-//       if (err) {
-//         console.log(err.message);
-//       } else {
-//         res.redirect("/");
-//       }
-//     }
-//   );
-// });
+router.put("/:id", (req, res) => {
+  Trail.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedTrail) => {
+      if (err) {
+        console.log(err.message);
+      } else {
+        res.redirect("/");
+      }
+    }
+  );
+});
 
 // DELETE /:id
 router.delete("/:id", (req, res) => {
@@ -63,7 +59,7 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-// order matters!
+// order matters here
 // NEW View
 router.get("/:state/new", (req, res) => {
   let state = req.params.state;
@@ -86,15 +82,6 @@ router.get("/:state", (req, res) => {
     }
   });
 });
-
-// GET / trails
-// router.get("/", (req, res) => {
-//   Trail.find({}, (err, allTrails) => {
-//     res.render("index.ejs", {
-//       trails: allTrails,
-//     });
-//   });
-// });
 
 // GET / states
 router.get("/", (req, res) => {

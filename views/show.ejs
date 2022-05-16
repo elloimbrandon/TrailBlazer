@@ -36,11 +36,17 @@
     <form action="/<%=trails[i].id%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE" />
     </form>
+    <!-- edit trail in this state -->
+    <button
+      class="link-button"
+      type="button"
+      onclick="location.href='/<%=trails[i].id%>/edit'"
+    >
+      Edit Park
+    </button>
+    <!-- //////////////////////// -->
     <% } %>
   </body>
-  <!-- <a href="/<%#=state%>/new">
-    <button type="button">Add New Trail</button>
-  </a> -->
 </html>
 <!-- graveyard -->
 <!-- <img src="<%#trails[i].image%>" alt="<%#=trails[i].name%>" /> -->
