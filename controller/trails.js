@@ -64,7 +64,7 @@ router.delete("/:id", (req, res) => {
 });
 
 // order matters!
-// // NEW View
+// NEW View
 router.get("/:state/new", (req, res) => {
   let state = req.params.state;
   res.render("new.ejs", {
@@ -76,10 +76,14 @@ router.get("/:state/new", (req, res) => {
 router.get("/:state", (req, res) => {
   let state = req.params.state;
   Trail.find({ state: req.params.state }, (err, foundTrails) => {
-    res.render("show.ejs", {
-      trails: foundTrails,
-      state: state,
-    });
+    if (err) {
+      console.log(err.message);
+    } else {
+      res.render("show.ejs", {
+        trails: foundTrails,
+        state: state,
+      });
+    }
   });
 });
 
@@ -114,17 +118,9 @@ router.get("/", (req, res) => {
 
 // Create
 // POST new trail
-// router.post("/", (req, res) => {
-//   Trail.create(req.body, (err, createdTrail) => {
-//     res.redirect("/");
-//   });
-// });
-
-// Create
-// POST new trail
 router.post("/:state", (req, res) => {
   Trail.create(req.body, (err, createdTrail) => {
-    res.redirect("/");
+    res.redirect(301, "/");
   });
 });
 
