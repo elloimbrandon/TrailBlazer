@@ -29,15 +29,20 @@
         of its parent.
       </p>
       <!-- Search bar -->
-      <div>
-        <form class="d-flex" action="/" method="GET">
+      <div class="flex-search-bar">
+        <form class="d-flex" autocomplete="off" action="/" method="GET">
           <input
             class="form-control me-2"
             type="text"
             name="search"
-            placeholder="State Search"
+            placeholder="Search for State"
           />
-          <input class="btn btn-outline-success" type="submit" value="Search" />
+          <input
+            id="search-button-submit"
+            class="btn btn-outline-success"
+            type="submit"
+            value="Search"
+          />
         </form>
       </div>
     </div>
@@ -46,18 +51,28 @@
     <div class="flex-no-state">
       <% if (noSearchMatch !== undefined) { %>
       <h1 class="display-4"><%=noSearchMatch%></h1>
-      <% } else { %>
-      <h1 style="font-size: 45px">States</h1>
       <% } %>
     </div>
     <!-- ///////////////////// -->
-    <% for (let i=0; i < states.length; i++) { %>
-    <a href="/<%=states[i].state;%>"><%=states[i].state;%></a>
-    <img class="state-flag-image" src="<%=states[i].image%>" />
-    <% } %>
+    <div class="flex-states-container-row">
+      <% for (let i=0; i < states.length; i++) { %>
+      <div class="flex-states-container-column">
+        <a class="state-anchor" href="/<%=states[i].state;%>"
+          ><%=states[i].state;%></a
+        >
+        <div class="flex-states-container-column-image-container">
+          <a href="/<%=states[i].state;%>">
+            <img src="<%=states[i].image%>" alt="<%=states[i].state%>" />
+          </a>
+        </div>
+      </div>
+      <% } %>
+    </div>
   </div>
 </html>
 
 <!-- graveyard -->
 
 <!-- <a href="/<%#=trails[i]._id;%>"><%#=trails[i].state;%></a> -->
+
+<!-- style="background-image: url(<%#=states[i].image%>)" -->
