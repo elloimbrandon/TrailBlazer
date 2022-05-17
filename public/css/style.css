@@ -8,7 +8,10 @@ html {
 
 	width: 100%;
 	height: 100%;
+	
 }
+
+/* ---------------- index page ----------------*/
 
 .flex-main-index-container {
 	display: flex;
@@ -61,6 +64,11 @@ html {
 
 	margin-top: 50px;
 
+	padding-bottom: 10px;
+	/* padding-top: 5px; */
+	border-bottom: .50px solid black ;
+	/* border-top: .50px solid black; */
+
 	/* border-radius: 4px; */
 	/* border: 0.5px solid black; */
 	/* background-color: bisque; */
@@ -97,7 +105,6 @@ html {
 
 .state-anchor {
 	font-size: 20px;
-	font-weight: bold;
 	color: black;
 	text-decoration: none;
 }
@@ -109,8 +116,93 @@ html {
 	 width: 60%;
  }
 
-/* testing */
+/* ---------------- index page end ----------------*/
 
-/* img {
-	width: 50%;
-} */
+/* ---------------- show page show ----------------*/
+
+.flex-trail-image {
+ 	width: 400px;
+ 	height: 250px;
+ 	/* width: 100%; */
+ }
+.flex-main-show-container {
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	justify-content: center;
+
+ 	width: 100%;
+ 	height: 100%;
+
+	margin-top: 20px;
+ }
+
+.flex-main-show-container-row {
+	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+
+  	width: 80%;
+
+	margin-bottom: 15px;
+  	/* border: 1px solid green; */
+  }
+
+.flex-main-show-container-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	
+	width: 35%;
+
+	border-radius: 5px;
+	border: 1px solid black;
+
+	/* margin-bottom: 15px; */
+}
+
+.flex-main-show-button-container-row {
+	display: flex;
+	flex-direction: row;
+	align-items: space-evenly;
+	justify-content: space-evenly;
+	
+	width: 100%;
+	background-color: darkblue;
+}
+
+.flex-trail-description-text {
+	font-size: 20px;
+}
+
+.flex-trail-description-container {
+	width: 65%;
+
+	margin-left: 15px;
+
+	/* border: 1px solid red; */
+}
+
+.flex-main-show-container-add {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	width: 80%;
+	height: 100px;
+
+	margin-bottom: 5px;
+
+	border-radius: 4px;
+	border: 1px dashed black;
+}
+
+.add-button {
+	width: 25%;
+	height: 50%;
+	/* border: 1px solid black; */
+}
+  /* ---------------- show page end ----------------*/
