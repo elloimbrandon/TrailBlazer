@@ -1,6 +1,7 @@
 const express = require("express");
 const req = require("express/lib/request");
 const methodOverride = require("method-override");
+const apiKey = process.env.GOOGLEAPIKEY;
 
 const router = express.Router();
 
@@ -59,7 +60,23 @@ router.delete("/:id", (req, res) => {
       console.log(err.message);
     } else {
       // http status code to indicate we permanently redirect
-      res.redirect(301, "/");
+      res.redirect(301, "/" + data.state);
+    }
+  });
+});
+
+router.get("/:state/:city/map", (req, res) => {
+  let state = req.params.state;
+  let city = req.params.city;
+  Trail.find({ city: city }, (err, data) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      res.render("map.ejs", {
+        apiKey: apiKey,
+        state: state,
+        city: city,
+      });
     }
   });
 });
@@ -76,6 +93,7 @@ router.get("/:state/new", (req, res) => {
 // GET /:state
 router.get("/:state", (req, res) => {
   let state = req.params.state;
+  // test with code below without using req.params.state
   Trail.find({ state: req.params.state }, (err, foundTrails) => {
     if (err) {
       console.log(err.message);
@@ -101,7 +119,7 @@ router.get("/", (req, res) => {
         console.log(err.message);
       } else {
         if (allStates.length < 1) {
-          noSearchMatch = `${req.query.search} was not found, try again ..`;
+          noSearchMatch = `${req.query.search} was not found, try again...`;
         }
         res.render("index.ejs", {
           states: allStates,
@@ -127,7 +145,7 @@ router.get("/", (req, res) => {
 // POST new trail
 router.post("/:state", (req, res) => {
   Trail.create(req.body, (err, createdTrail) => {
-    res.redirect(301, "/");
+    res.redirect(301, "/" + req.params.state);
   });
 });
 
@@ -137,7 +155,7 @@ module.exports = router;
 // mongoose Seed and Drop DB
 
 // *** seed data into database once and comment out after ***
-
+// *** implement using a route to seed data instead ***
 // Trail.create(trailSeed, (err, data) => {
 //   if (err) console.log(err.message);
 //   console.log("Added provided trail data....");

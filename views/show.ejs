@@ -15,9 +15,16 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <nav class="navbar sticky-top navbar-light bg-light">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Trail Blazer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <!-- ////////////////////////// -->
@@ -25,7 +32,17 @@
   <!-- if there is than it will work like normal. If not it will say there are no trails in that state -->
   <% let currentState = "" %> <% for (let i=0; i < trails.length; i++) { %>
   <%currentState = trails[i].state%> <% } %> <% if (currentState === "") { %>
-  <h1>Cannot find trails in <%=state%>... Sorry</h1>
+  <div class="flex-header-content">
+    <h1 class="display-4">Cannot find trails in <%=state%>... Sorry</h1>
+    <button
+      class="btn btn-success back-button"
+      type="button"
+      onclick="location.href='/'"
+    >
+      Back
+    </button>
+    <h1 class="display-4">- or -</h1>
+  </div>
   <% } else { %>
   <div class="flex-header-content">
     <h1 style="text-decoration: 2px underline" class="display-4">
@@ -47,16 +64,14 @@
         <div class="flex-main-show-button-container-row">
           <form action="/<%=trails[i].id%>?_method=DELETE" method="POST">
             <input
-              style="color: white"
-              class="btn"
+              class="btn edit-delete-text"
               type="submit"
               value="Delete Trail"
             />
           </form>
           <!-- edit trail in this state -->
           <button
-            style="color: white"
-            class="btn"
+            class="btn edit-delete-text"
             type="button"
             onclick="location.href='/<%=trails[i].id%>/edit'"
           >
@@ -66,11 +81,23 @@
       </div>
       <div class="flex-trail-description-container">
         <p class="flex-trail-description-text">
-          Trail Name: <%=trails[i].name%> <br />
-          City: <%=trails[i].city%> <br />
-          Length In Miles: <%=trails[i].miles%> <br />
-          Description: <%=trails[i].description%>
+          <u class="trail-description-text">Trail Name:</u> <%=trails[i].name%>
+          <br />
+          <u class="trail-description-text">City:</u> <%=trails[i].city%> <br />
+          <u class="trail-description-text">Length In Miles:</u>
+          <%=trails[i].miles%> <br />
+          <u class="trail-description-text">Description:</u>
+          <%=trails[i].description%>
         </p>
+        <!-- testing -->
+        <button
+          class="btn"
+          type="button"
+          onclick="location.href='/<%=trails[i].state%>/<%=trails[i].city%>/map'"
+        >
+          See Location of <%=trails[i].city%>!
+        </button>
+        <!-- /////////////// -->
       </div>
       <!-- //////////////////////// -->
     </div>

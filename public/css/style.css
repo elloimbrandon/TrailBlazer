@@ -1,3 +1,5 @@
+
+
 * {
 	box-sizing: border-box;
 }
@@ -34,7 +36,7 @@ html {
 	width: 100%;
 	height: 100%;
 
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .flex-search-bar {
@@ -123,6 +125,7 @@ html {
 .flex-trail-image {
  	width: 400px;
  	height: 250px;
+	 border-radius: 1px;
  	/* width: 100%; */
  }
 .flex-main-show-container {
@@ -146,7 +149,8 @@ html {
   	width: 80%;
 
 	margin-bottom: 15px;
-  	/* border: 1px solid green; */
+  	/* border-bottom: .50px solid black;
+	border-radius: 2px; */
   }
 
 .flex-main-show-container-column {
@@ -170,7 +174,19 @@ html {
 	justify-content: space-evenly;
 	
 	width: 100%;
-	background-color: darkblue;
+	background-color: #4b8b3b;
+}
+
+.edit-delete-text {
+	color: white;
+}
+
+.edit-delete-text:hover {
+	color: blue;
+}
+
+.trail-description-text {
+	color: #4b8b3b;
 }
 
 .flex-trail-description-text {
@@ -187,7 +203,7 @@ html {
 
 .flex-main-show-container-add {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
@@ -200,9 +216,100 @@ html {
 	border: 1px dashed black;
 }
 
+
 .add-button {
 	width: 25%;
 	height: 50%;
+	color: white;
+	background-color: #4b8b3b;
+	margin-left: 10px;
 	/* border: 1px solid black; */
 }
-  /* ---------------- show page end ----------------*/
+
+.add-button:hover {
+	color: blue;
+}
+
+.back-button {
+
+	width: 15%;
+	margin-top: 25px;
+	margin-bottom: 25px;
+
+	background-color: orange;
+	border: none;
+}
+
+.back-button:hover {
+	background-color: lightslategray;
+	color: blue;
+}
+/* ---------------- show page end ----------------*/
+
+/* ---------------- new page start ----------------*/
+
+.flex-main-add-container-row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	width: 60%;
+
+	margin-bottom: 15px;
+	margin-top: 25px;
+}
+
+.flex-trail-add-main-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+
+  	margin-left: 15px;
+}
+
+.flex-add-form-container-row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	width: 100%;
+	margin-right: 2px;
+
+	padding: 2px;
+
+	/* border: 1px solid red; */
+}
+
+.new-image {
+	border: 1px dashed black;
+	border-radius: 4px;
+}
+
+.add-trail-button {
+	margin-top: 10px;
+
+	width: 20%;
+	height: 50%;
+
+	color: white;
+	background-color: #4b8b3b;
+}
+
+.add-trail-button:hover {
+	color: blue;
+}
+
+/* ---------------- new page end ----------------*/
+
+/* ---------------- edit page start ----------------*/
+
+.edit-image {
+	width: 80%;
+	border: 1px solid black;
+	border-radius: 4px;
+}

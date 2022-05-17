@@ -6,46 +6,95 @@
     <title>edit</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body>
-      <form action="/<%=trails._id%>?_method=PUT" method="POST">
-        Name of Trail:
-      <input type="text" name="name" value="<%=trails.name%>" required />
-      <br />
-      State:
-      <input type="text" name="state" value="<%=trails.state%>" readonly />
-      <br />
-      City:
-      <input type="text" name="city" value="<%=trails.city%>" required />
-      <br />
-      <!-- keep and eye on Decimal128 -->
-      Miles:
-      <input
-        type="number"
-        step="0.01"
-        min="0"
-        name="miles"
-        value="<%=trails.miles%>"
-        required
-      />
-      <br />
-      Description of Trail:
-      <input
-        type="text"
-        name="description"
-        value="<%=trails.description%>"
-        required
-      />
-      <br />
-      Image of Trail:
-      <input
-        type="text"
-        name="image"
-        required
-        value="<%=trails.image%>"
-      />
-      <br />
-    <input type="submit" value="Edit Trail" />
-  </body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Trail Blazer</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="flex-main-show-container">
+      <h1 style="text-decoration: 2px underline" class="display-4">
+    Edit Trail For <%=trails.state%>
+  </h1>
+    <div class="flex-main-add-container-row">
+        <img
+          class="flex-trail-image edit-image"
+          src="<%=trails.image%>"
+          alt="<%=trails.name%> Image"
+        />
+      <div class="flex-trail-add-main-container">
+          <form class="flex-trail-description-text" autocomplete="off" action="/<%=trails._id%>?_method=PUT" method="POST">
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+            <u>Name of Trail:</u>
+            </div>
+              <input type="text" name="name" value="<%=trails.name%>" required />
+            </div>
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+             <u>State:</u>
+            </div>
+            <input type="text" name="state" value="<%=trails.state%>" readonly />
+          </div>
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+            <u>City:</u>
+            </div>
+            <input type="text" name="city" value="<%=trails.city%>" required />
+            </div>
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+            <u>Miles:</u>
+            </div>
+            <input
+            type="number"
+            step="0.01"
+            min="0"
+            name="miles"
+            value="<%=trails.miles%>"
+            required
+            />
+            </div>
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+            <u>Description of Trail:</u>
+            </div>
+            <input
+            type="text"
+            name="description"
+            value="<%=trails.description%>"
+            />
+            </div>
+            <div class="flex-add-form-container-row">
+            <div class="flex-add-form-container-row trail-description-text">
+            <u>Image of Trail:</u>
+            </div>
+            <input
+            type="text"
+            name="image"
+            value="<%=trails.image%>"
+            required
+            />
+            </div>
+          </div>
+        </div>
+        <input class="btn btn-success add-trail-button" type="submit" value="Edit Trail" />
+      </form>
+    </div>
 </html>
+

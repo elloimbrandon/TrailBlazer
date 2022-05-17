@@ -11,13 +11,14 @@
 const express = require("express");
 // const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+// grabbing only env file in current directory
+const env = require("dotenv").config({ path: ".env" });
 const trailsController = require("./controller/trails");
 const PORT = process.env.PORT || 3000;
 
 // config
 const app = express();
 const db = mongoose.connection;
-require("dotenv").config();
 
 //use public folder for static assets *** still dont know why this needs to be here ***
 app.use(express.static("public"));
@@ -51,6 +52,8 @@ db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
 // using routes from controller
+
+// change to /trailblazer as default
 app.use("/", trailsController);
 
 //___________________
