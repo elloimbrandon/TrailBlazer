@@ -24,7 +24,8 @@ html body {
 
 .nav-bar-border {
 	font-size: 20px;
-	background: none;
+	/* background: none; */
+	background: #147EDA30;
 }
 
 
@@ -143,10 +144,12 @@ html body {
 /* ---------------- show page start ----------------*/
 
 .flex-trail-image {
- 	width: 400px;
- 	height: 250px;
-	 border-radius: 1px;
- 	/* width: 100%; */
+ 	/* width: 400px;
+ 	height: 250px; */
+
+	border-radius: 1px;
+ 	width: 100%;
+	height: 50%;
  }
 .flex-main-show-container {
  	display: flex;
@@ -237,7 +240,7 @@ html body {
 
 	border-radius: 4px;
 
-		background-color: #147EDA30;
+	background-color: #147EDA30;
 	border: 1px dashed black;
 }
 
@@ -318,6 +321,7 @@ html body {
 }
 
 .new-image {
+	width: 50%;
 	border: 1px dashed black;
 	border-radius: 4px;
 }
@@ -343,8 +347,9 @@ html body {
 /* ---------------- edit page start ----------------*/
 
 .edit-image {
-	width: 80%;
+	width: 45%;
 	border: 1px solid #147eda;
+		/* border: 1px solid red; */
 	border-radius: 4px;
 }
 
