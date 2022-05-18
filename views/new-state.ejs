@@ -43,7 +43,7 @@
     </nav>
   <div class="flex-main-show-container">
       <h1 style="text-decoration: 2px underline" class="display-4">
-    Add Trail For <%=state%>
+    Add State
   </h1>
     <div class="flex-main-add-container-row">
         <img
@@ -52,62 +52,27 @@
           alt="Placeholder Image"
         />
       <div class="flex-trail-add-main-container">
-          <form class="flex-trail-description-text" autocomplete="off" action="/<%=state%>/" method="POST">
+          <form class="flex-trail-description-text"autocomplete="off" action="/new-state" method="POST">
             <div class="flex-add-form-container-row">
             <div class="flex-add-form-container-row trail-description-text">
-            <u>Name of Trail:</u>
+            <u>State Name:</u>
             </div>
-              <input placeholder="Name of Trail" type="text" name="name" required />
-            </div>
-            <div class="flex-add-form-container-row">
-            <div class="flex-add-form-container-row trail-description-text">
-             <u>State:</u>
-            </div>
-            <input type="text" name="state" value="<%=state%>" readonly />
-          </div>
-            <div class="flex-add-form-container-row">
-            <div class="flex-add-form-container-row trail-description-text">
-            <u>City:</u>
-            </div>
-            <input placeholder="City" type="text" name="city" required />
+              <input placeholder="Name of State" type="text" name="state" required />
             </div>
             <div class="flex-add-form-container-row">
             <div class="flex-add-form-container-row trail-description-text">
-            <u>Miles:</u>
-            </div>
-            <input
-            placeholder="Length of trail in miles"
-            type="number"
-            step="0.01"
-            min="0"
-            name="miles"
-            required
-            />
-            </div>
-            <div class="flex-add-form-container-row">
-            <div class="flex-add-form-container-row trail-description-text">
-            <u>Description of Trail:</u>
-            </div>
-            <input
-            placeholder="Description of trail"
-            type="text"
-            name="description"
-            />
-            </div>
-            <div class="flex-add-form-container-row">
-            <div class="flex-add-form-container-row trail-description-text">
-            <u>Image of Trail:</u>
+            <u>State Icon:</u>
             </div>
             <input
             type="text"
             name="image"
             required
-            value="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
+            value="hike-svgs/icons8-national-park-100.png"
             />
             </div>
           </div>
         </div>
-        <input class="btn btn-success add-trail-button" type="submit" value="Add Trail" />
+        <input class="btn btn-success add-trail-button" type="submit" value="Add State" />
       </form>
     </div>
 </html>

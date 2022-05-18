@@ -36,13 +36,13 @@
   <div class="flex-main-index-container">
     <!-- jumbotron -->
     <div class="flex-header-content">
-      <h1 class="display-4">Trail Blazer</h1>
+      <h1 style="text-decoration: 2px underline"class="display-4">Trail Blazer</h1>
       <div class="flex-app-description">
-        <p class="lead">
+        <h5>
           Trail Blazer is a simple web app that allows people to view different
           hikes in their state and edit or make changes to them. Also, the
-          option of adding hikes they find on their own! Enjoy.
-        </p>
+          option of states as well as hikes they find on their own! Enjoy.
+        <h5>
       </div>
       <!-- Search bar -->
       <div class="flex-search-bar">
@@ -78,18 +78,34 @@
         >
         <div class="flex-states-container-column-image-container">
           <a href="/<%=states[i].state;%>">
-            <img src="<%=states[i].image%>" alt="<%=states[i].state%>" />
+            <img
+              class="flex-index-image"
+              src="<%=states[i].image%>"
+              alt="<%=states[i].state%>"
+            />
           </a>
+          <% if (states[i].id) { %>
+          <div>
+            <form
+              action="/<%=states[i].id%>/<%=states[i].state%>/?_method=DELETE"
+              method="POST"
+            >
+              <input
+                class="btn delete-btn-index"
+                type="submit"
+                value="Delete"
+              />
+            </form>
+          </div>
+          <% } %>
         </div>
       </div>
       <% } %>
     </div>
+    <div class="flex-states-container-column-image-container">
+      <div class="flex-add-state">
+        <a class="add-state-text" href="/new-state">Add State</a>
+      </div>
+    </div>
   </div>
-  <!-- </body> -->
 </html>
-
-<!-- graveyard -->
-
-<!-- <a href="/<%#=trails[i]._id;%>"><%#=trails[i].state;%></a> -->
-
-<!-- style="background-image: url(<%#=states[i].image%>)" -->
