@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>States</title>
+    <title>Map</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- bootstrap -->
@@ -15,26 +15,43 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <nav class="nav-bar-border navbar sticky-top navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Trail Blazer</a>
-      <div class="collapse navbar-collapse" id="navbarText">
+      <a class="navbar-brand trail-description-text" href="/">Trail Blazer</a>
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a
+              class="nav-link active trail-description-text"
+              aria-current="page"
+              href="/"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active trail-description-text"
+              aria-current="page"
+              href="javascript:history.back()"
+              >Back</a
+            >
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <iframe
-    width="600"
-    height="450"
-    loading="auto"
-    allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed/v1/place?key=<%=apiKey%>
+  <div class="flex-header-content">
+    <h1 class="display-4"><%=city%>, <%=state%></h1>
+  </div>
+  <div class="flex-main-show-container">
+    <iframe
+      class="google-map"
+      loading="auto"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=<%=apiKey%>
     &q=<%=city%>+<%=state%>"
-  >
-  </iframe>
+    >
+    </iframe>
+  </div>
 </html>

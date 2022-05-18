@@ -47,7 +47,7 @@ router.put("/:id", (req, res) => {
       if (err) {
         console.log(err.message);
       } else {
-        res.redirect("/");
+        res.redirect(301, "/" + updatedTrail.state);
       }
     }
   );
@@ -155,7 +155,6 @@ module.exports = router;
 // mongoose Seed and Drop DB
 
 // *** seed data into database once and comment out after ***
-// *** implement using a route to seed data instead ***
 // Trail.create(trailSeed, (err, data) => {
 //   if (err) console.log(err.message);
 //   console.log("Added provided trail data....");
@@ -215,4 +214,35 @@ module.exports = router;
 //       });
 //     }
 //   });
+// });
+
+// // URL CREATE/DROP
+// // Seed data via url
+
+// router.post("/seedtrails", (req, res) => {
+//   Trail.create(trailSeed, (err, createdTrail) => {
+//     if (err) console.log(err.message);
+//     console.log("Added provided trail data....");
+//     res.redirect(301, "/");
+//   });
+// });
+
+// router.post("/seedstates", (req, res) => {
+//   State.create(stateSeed, (err, createdState) => {
+//     if (err) console.log(err.message);
+//     console.log("Added provided trail data....");
+//     res.redirect(301, "/");
+//   });
+// });
+
+// router.post("/dropdbs", (req, res) => {
+//   State.collection.drop((err, data) => {
+//     if (err) console.log(err.message);
+//     console.log("Removed State sub db....");
+//   });
+//   Trail.collection.drop((err, data) => {
+//     if (err) console.log(err.message);
+//     console.log("Removed Trail sub db....");
+//   });
+//   res.redirect(301, "/");
 // });

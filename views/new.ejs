@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <div>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>state</title>
+    <title>New Trail</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- bootstrap -->
@@ -15,18 +16,31 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Trail Blazer</a>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-        </ul>
+      <nav class="nav-bar-border navbar sticky-top navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand trail-description-text" href="/">Trail Blazer</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active trail-description-text"
+                aria-current="page"
+                href="/"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active trail-description-text"
+                aria-current="page"
+                href="javascript:history.back()"
+                >Back</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
   <div class="flex-main-show-container">
       <h1 style="text-decoration: 2px underline" class="display-4">
     Add Trail For <%=state%>
@@ -97,44 +111,3 @@
       </form>
     </div>
 </html>
-
-
-    <!-- <form autocomplete="off" action="/<%#=state%>/" method="POST">
-      Name of Trail:
-      <input placeholder="Name of Trail" type="text" name="name" required />
-      <br />
-      State:
-      <input type="text" name="state" value="<%#=state%>" readonly />
-      <br />
-      City:
-      <input placeholder="City" type="text" name="city" required />
-      <br />
-      keep and eye on Decimal128
-      Miles:
-      <input
-        placeholder="Length of trail in miles"
-        type="number"
-        step="0.01"
-        min="0"
-        name="miles"
-        required
-      />
-      <br />
-      Description of Trail:
-      <input
-        placeholder="Description of trail"
-        type="text"
-        name="description"
-      />
-      <br />
-      Image of Trail:
-      <input
-        type="text"
-        name="image"
-        required
-        value="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
-      />
-      <br />
-      <input type="submit" value="Add New Trail" />
-    </form>
-  </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>States</title>
+    <title>Trail Blazer</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- bootstrap -->
@@ -15,26 +15,35 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <nav class="nav-bar-border navbar sticky-top navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Trail Blazer</a>
+      <a class="navbar-brand trail-description-text" href="/">Trail Blazer</a>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a
+              class="nav-link active trail-description-text"
+              aria-current="page"
+              href="/"
+              >Home</a
+            >
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <!-- <body> -->
   <div class="flex-main-index-container">
     <!-- jumbotron -->
     <div class="flex-header-content">
       <h1 class="display-4">Trail Blazer</h1>
-      <p class="lead">
-        This is a modified jumbotron that occupies the entire horizontal space
-        of its parent.
-      </p>
+      <div class="flex-app-description">
+        <p class="lead">
+          Trail Blazer is a simple web app that allows people to view different
+          hikes in their state and edit or make changes to them. Also, the
+          option of adding hikes they find on their own! Enjoy.
+        </p>
+      </div>
       <!-- Search bar -->
       <div class="flex-search-bar">
         <form class="d-flex" autocomplete="off" action="/" method="GET">
@@ -46,7 +55,7 @@
           />
           <input
             id="search-button-submit"
-            class="btn btn-outline-success"
+            class="btn add-button"
             type="submit"
             value="Search"
           />
@@ -76,6 +85,7 @@
       <% } %>
     </div>
   </div>
+  <!-- </body> -->
 </html>
 
 <!-- graveyard -->
