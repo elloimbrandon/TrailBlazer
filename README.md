@@ -5,6 +5,7 @@
 ## About This Project :
 
 Trail Blazer is a full CRUD application that provides hiking trails in the US states listed on the home page!
+Live Project: https://boiling-inlet-95638.herokuapp.com/
 
 ## Features :
 
